@@ -1,30 +1,25 @@
-import {StyleValue} from "./interfaces"
+import { StyleValue } from './interfaces';
 
-export default padding(
-  arg1: StyleValue,
-  arg2: StyleValue | undefined = null,
-  arg3: StyleValue | undefined = null,
-  arg4: StyleValue | undefined = null
-) {
-  if (!arg2) {
-    return { padding: arg1 }
-  } else if (!arg3) {
-    return {
-      paddingVertical: arg1,
-      paddingHorizontal: arg2
-    }
-  } else if (!arg4) {
-    return {
-      paddingTop: arg1,
-      paddingHorizontal: arg2,
-      paddingBottom: arg3
-    }
-  } else {
-    return {
-      paddingTop: arg1,
-      paddingRight: arg2,
-      paddingBottom: arg3,
-      paddingLeft: arg4
-    }
-  }
+export default function padding(...args: [StyleValue | undefined]) {
+	if (args.length === 1) {
+		return { padding: args[0] };
+	} else if (args.length === 2) {
+		return {
+			paddingVertical: args[0],
+			paddingHorizontal: args[1]
+		};
+	} else if (args.length === 3) {
+		return {
+			paddingTop: args[0],
+			paddingHorizontal: args[1],
+			paddingBottom: args[2]
+		};
+	} else {
+		return {
+			paddingTop: args[0],
+			paddingRight: args[1],
+			paddingBottom: args[2],
+			paddingLeft: args[3]
+		};
+	}
 }

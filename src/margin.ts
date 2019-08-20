@@ -1,30 +1,25 @@
-import {StyleValue} from "./interfaces"
+import { StyleValue } from './interfaces';
 
-export default margin(
-  arg1: StyleValue,
-  arg2: StyleValue | undefined = null,
-  arg3: StyleValue | undefined = null,
-  arg4: StyleValue | undefined = null
-) {
-  if (!arg2) {
-    return { margin: arg1 }
-  } else if (!arg3) {
-    return {
-      marginVertical: arg1,
-      marginHorizontal: arg2
-    }
-  } else if (!arg4) {
-    return {
-      marginTop: arg1,
-      marginHorizontal: arg2,
-      marginBottom: arg3
-    }
-  } else {
-    return {
-      marginTop: arg1,
-      marginRight: arg2,
-      marginBottom: arg3,
-      marginLeft: arg4
-    }
-  }
+export default function margin(...args: [StyleValue | undefined]) {
+	if (args.length === 1) {
+		return { margin: args[0] };
+	} else if (args.length === 2) {
+		return {
+			marginVertical: args[0],
+			marginHorizontal: args[1]
+		};
+	} else if (args.length === 3) {
+		return {
+			marginTop: args[0],
+			marginHorizontal: args[1],
+			marginBottom: args[2]
+		};
+	} else {
+		return {
+			marginTop: args[0],
+			marginRight: args[1],
+			marginBottom: args[2],
+			marginLeft: args[3]
+		};
+	}
 }

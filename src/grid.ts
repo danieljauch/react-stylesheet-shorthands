@@ -1,17 +1,8 @@
-const gridColumn
-const gridRow
-const gridGap
+export function gridColumn() {}
+export function gridRow() {}
+export function gridGap() {}
 
-const gridArea
-const gridTemplate
+export function gridArea() {}
+export function gridTemplate() {}
 
-const grid
-
-const {
-  grid,
-  gridArea,
-  gridColumn,
-  gridGap,
-  gridRow,
-  gridTemplate
-}
+export function grid() {}
