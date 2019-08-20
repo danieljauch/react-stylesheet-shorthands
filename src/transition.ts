@@ -1,1 +1,1 @@
-export default function transition() {}
+export default function transition () {}

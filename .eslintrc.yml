@@ -2,10 +2,10 @@ root: true
 parser: "@typescript-eslint/parser"
 extends:
   - plugin:prettier/recommended
+  - prettier
   - prettier/@typescript-eslint
   - plugin:@typescript-eslint/recommended
   - standard
-  - "./tsconfig.json"
 plugins:
   - jest
   - prettier
@@ -13,45 +13,59 @@ plugins:
   - typescript
 rules:
   # ------------------------------------- Standard ESLint rules ------------------------------------
-  array-callback-return: "error"
-  block-scoped-var: "error"
-  brace-style: ["error", "1tbs", { allowSingleLine: true }]
-  camelcase: "error"
-  complexity: ["warn", 10]
-  consistent-this: "error"
-  default-case: "error"
-  dot-location: "error"
-  dot-notation: "error"
-  max-classes-per-file: ["error", 1]
-  max-depth: ["error", { max: 4 }]
-  max-len: ["warn", { code: 80, comments: 80, tabWidth: 2, ignoreUrls: true, ignoreStrings: true, ignoreTemplateLiterals: true, ignoreRegExpLiterals: true }]
-  max-lines: ["warn", { max: 300, skipBlankLines: true, skipComments: true }]
+  array-callback-return: error
+  block-scoped-var: error
+  brace-style: [error, "1tbs", { allowSingleLine: true }]
+  camelcase: error
+  complexity: [warn, 10]
+  consistent-this: error
+  default-case: error
+  dot-location: error
+  dot-notation: error
+  func-call-spacing: [error, "always"]
+  max-classes-per-file: [error, 1]
+  max-depth: [error, { max: 4 }]
+  max-len: [warn, { code: 80, comments: 80, tabWidth: 2, ignoreUrls: true, ignoreStrings: true, ignoreTemplateLiterals: true, ignoreRegExpLiterals: true }]
+  max-lines: [warn, { max: 300, skipBlankLines: true, skipComments: true }]
   max-lines-per-function: off
-  max-nested-callbacks: ["warn", 2]
-  max-params: ["warn", 3]
-  new-cap: "error"
-  no-else-return: "error"
-  no-empty-function: "error"
-  no-eq-null: "error"
-  no-extend-native: "error"
-  no-implicit-coercion: ["error", { boolean: false, number: true, string: true }]
-  no-multiple-empty-lines: "error"
-  no-nested-ternary: "error"
-  no-param-reassign: "error"
-  no-return-assign: "error"
-  no-shadow: "error"
-  no-unused-vars: ["error", { argsIgnorePattern: "^_", ignoreRestSiblings: true }]
-  no-unneeded-ternary: "error"
-  no-unused-expressions: ["error", { allowShortCircuit: true, allowTernary: true }]
-  no-use-before-define: "error"
-  no-useless-concat: "error"
-  no-var: "error"
-  padded-blocks: "error"
-  quotes: ["error", "double", { avoidEscape: true }]
-  radix: "error"
-  require-await: "warn"
-  semi: ["error", "never"]
-  semi-spacing: "error"
-  spaced-comment: ["error", "always"]
-  # ------------------------------------------ Extra rules -----------------------------------------
-  extra-rules/potential-point-free: "error"
+  max-nested-callbacks: [warn, 2]
+  max-params: [warn, 3]
+  new-cap: error
+  no-else-return: error
+  no-empty-function: error
+  no-eq-null: error
+  no-extend-native: error
+  no-extra-parens: error
+  no-implicit-coercion: [error, { boolean: false, number: true, string: true }]
+  no-multiple-empty-lines: error
+  no-nested-ternary: error
+  no-param-reassign: error
+  no-return-assign: error
+  no-shadow: error
+  no-unused-vars: [error, { argsIgnorePattern: "^_", ignoreRestSiblings: true }]
+  no-unneeded-ternary: error
+  no-unused-expressions: [error, { allowShortCircuit: true, allowTernary: true }]
+  no-use-before-define: error
+  no-useless-concat: error
+  no-tabs: off
+  no-var: error
+  padded-blocks: error
+  quotes: [error, "double", { avoidEscape: true }]
+  radix: error
+  require-await: warn
+  semi: off
+  semi-spacing: error
+  spaced-comment: [error, "always"]
+  # ---------------------------------------- Prettier rules ----------------------------------------
+  prettier/prettier: off
+  # --------------------------------------- TypeScript rules ---------------------------------------
+  "@typescript-eslint/array-type": [error, { default: "array-simple" }]
+  "@typescript-eslint/ban-ts-ignore": warn
+  "@typescript-eslint/class-name-casing": error
+  "@typescript-eslint/explicit-function-return-type": error
+  "@typescript-eslint/member-delimiter-style": [error, { delimiter: "comma", requireLast: false }]
+  "@typescript-eslint/no-empty-interface": error
+  "@typescript-eslint/no-explicit-any": error
+  "@typescript-eslint/restrict-plus-operands": error
+  "@typescript-eslint/semi": [error, "never"]
+  "@typescript-eslint/type-annotation-spacing": [error, { before: false, after: true }]

@@ -1,5 +1,5 @@
-import padding from '../padding';
+import padding from "../padding"
 
-describe('padding', () => {
-	it('', () => {});
-});
+describe("padding", () => {
+  it("", () => {})
+})

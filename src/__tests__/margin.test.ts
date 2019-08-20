@@ -1,5 +1,5 @@
-import margin from '../margin';
+import margin from "../margin"
 
-describe('margin', () => {
-	it('', () => {});
-});
+describe("margin", () => {
+  it("", () => {})
+})

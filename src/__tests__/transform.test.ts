@@ -1,5 +1,5 @@
-import transform from '../transform';
+import transform from "../transform"
 
-describe('transform', () => {
-	it('', () => {});
-});
+describe("transform", () => {
+  it("", () => {})
+})

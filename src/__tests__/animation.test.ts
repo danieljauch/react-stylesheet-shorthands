@@ -1,5 +1,5 @@
-import animation from '../animation';
+import animation from "../animation"
 
-describe('animation', () => {
-	it('', () => {});
-});
+describe("animation", () => {
+  it("", () => {})
+})

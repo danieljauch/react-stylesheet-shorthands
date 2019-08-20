@@ -1,5 +1,5 @@
-import background from '../background';
+import background from "../background"
 
-describe('background', () => {
-	it('', () => {});
-});
+describe("background", () => {
+  it("", () => {})
+})

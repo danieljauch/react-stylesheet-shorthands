@@ -1,132 +1,132 @@
-import { BorderSide, BorderStyles, BorderStyleValue, DurationValue, StyleValue } from './interfaces';
+import { BorderSide, BorderStyles, BorderStyleValue, DurationValue, StyleValue } from "./interfaces";
 
 const borderDefaults = {
-	width: 1,
-	style: 'solid',
-	color: '#000'
-};
-
-export function borderTop(
-	width: DurationValue | StyleValue = '1px',
-	style: BorderStyleValue = BorderStyleValue.SOLID,
-	color: string = '#000'
-) {
-	return {
-		borderTopWidth: width,
-		borderTopStyle: style,
-		borderTopColor: color
-	};
-}
-export function borderRight(
-	width: DurationValue | StyleValue = '1px',
-	style: BorderStyleValue = BorderStyleValue.SOLID,
-	color: string = '#000'
-) {
-	return {
-		borderRightWidth: width,
-		borderRightStyle: style,
-		borderRightColor: color
-	};
-}
-export function borderLeft(
-	width: DurationValue | StyleValue = '1px',
-	style: BorderStyleValue = BorderStyleValue.SOLID,
-	color: string = '#000'
-) {
-	return {
-		borderLeftWidth: width,
-		borderLeftStyle: style,
-		borderLeftColor: color
-	};
-}
-export function borderBottom(
-	width: DurationValue | StyleValue = '1px',
-	style: BorderStyleValue = BorderStyleValue.SOLID,
-	color: string = '#000'
-) {
-	return {
-		borderBottomWidth: width,
-		borderBottomStyle: style,
-		borderBottomColor: color
-	};
+  width: 1,
+  style: "solid",
+  color: "#000"
 }
 
-export function borderVertical(
-	width: DurationValue | StyleValue = '1px',
-	style: BorderStyleValue = BorderStyleValue.SOLID,
-	color: string = '#000'
+export function borderTop (
+  width: DurationValue | StyleValue = "1px",
+  style: BorderStyleValue = BorderStyleValue.SOLID,
+  color = "#000"
 ) {
-	return {
-		borderVerticalWidth: width,
-		borderVerticalStyle: style,
-		borderVerticalColor: color
-	};
+  return {
+    borderTopWidth: width,
+    borderTopStyle: style,
+    borderTopColor: color
+  }
 }
-export function borderHorizontal(
-	width: DurationValue | StyleValue = '1px',
-	style: BorderStyleValue = BorderStyleValue.SOLID,
-	color: string = '#000'
+export function borderRight (
+  width: DurationValue | StyleValue = "1px",
+  style: BorderStyleValue = BorderStyleValue.SOLID,
+  color = "#000"
 ) {
-	return {
-		borderHorizontalWidth: width,
-		borderHorizontalStyle: style,
-		borderHorizontalColor: color
-	};
+  return {
+    borderRightWidth: width,
+    borderRightStyle: style,
+    borderRightColor: color
+  }
+}
+export function borderLeft (
+  width: DurationValue | StyleValue = "1px",
+  style: BorderStyleValue = BorderStyleValue.SOLID,
+  color = "#000"
+) {
+  return {
+    borderLeftWidth: width,
+    borderLeftStyle: style,
+    borderLeftColor: color
+  }
+}
+export function borderBottom (
+  width: DurationValue | StyleValue = "1px",
+  style: BorderStyleValue = BorderStyleValue.SOLID,
+  color = "#000"
+) {
+  return {
+    borderBottomWidth: width,
+    borderBottomStyle: style,
+    borderBottomColor: color
+  }
 }
 
-export function border(
-	width: DurationValue | StyleValue = '1px',
-	style: BorderStyleValue = BorderStyleValue.SOLID,
-	color: string = '#000'
+export function borderVertical (
+  width: DurationValue | StyleValue = "1px",
+  style: BorderStyleValue = BorderStyleValue.SOLID,
+  color = "#000"
 ) {
-	return {
-		borderWidth: width,
-		borderStyle: style,
-		borderColor: color
-	};
+  return {
+    borderVerticalWidth: width,
+    borderVerticalStyle: style,
+    borderVerticalColor: color
+  }
+}
+export function borderHorizontal (
+  width: DurationValue | StyleValue = "1px",
+  style: BorderStyleValue = BorderStyleValue.SOLID,
+  color = "#000"
+) {
+  return {
+    borderHorizontalWidth: width,
+    borderHorizontalStyle: style,
+    borderHorizontalColor: color
+  }
 }
 
-export function allBorders({
-	top: BorderStyles = borderDefaults,
-	right: BorderStyles = borderDefaults,
-	bottom: BorderStyles = borderDefaults,
-	left: BorderStyles = borderDefaults
+export function border (
+  width: DurationValue | StyleValue = "1px",
+  style: BorderStyleValue = BorderStyleValue.SOLID,
+  color = "#000"
+) {
+  return {
+    borderWidth: width,
+    borderStyle: style,
+    borderColor: color
+  }
+}
+
+export function allBorders ({
+  top: BorderStyles = borderDefaults,
+  right: BorderStyles = borderDefaults,
+  bottom: BorderStyles = borderDefaults,
+  left: BorderStyles = borderDefaults
 }) {
-	return {
-		...borderTop(top.width, top.style, top.color),
-		...borderRight(right.width, right.style, right.color),
-		...borderBottom(bottom.width, bottom.style, bottom.color),
-		...borderLeft(left.width, left.style, left.color)
-	};
+  return {
+    ...borderTop(top.width, top.style, top.color),
+    ...borderRight(right.width, right.style, right.color),
+    ...borderBottom(bottom.width, bottom.style, bottom.color),
+    ...borderLeft(left.width, left.style, left.color)
+  }
 }
 
-export function someBorders(sides: [BorderSide], ...borderStyles) {
-	let styles = {};
+export function someBorders (sides: [BorderSide], ...borderStyles) {
+  let styles = {}
 
 	for (let side = 0, l = sides.length; side < l; side++) {
-		switch (sides[side]) {
-			case BorderSide.VERTICAL:
-				styles = { ...styles, ...borderVertical(borderStyles) };
+    switch (sides[side]) {
+      case BorderSide.VERTICAL:
+        styles = { ...styles, ...borderVertical(borderStyles) }
 				break;
-			case BorderSide.HORIZONTAL:
-				styles = { ...styles, ...borderHorizontal(borderStyles) };
+      case BorderSide.HORIZONTAL:
+        styles = { ...styles, ...borderHorizontal(borderStyles) }
 				break;
-			case BorderSide.BOTTOM:
-				styles = { ...styles, ...borderBottom(borderStyles) };
+      case BorderSide.BOTTOM:
+        styles = { ...styles, ...borderBottom(borderStyles) }
 				break;
-			case BorderSide.LEFT:
-				styles = { ...styles, ...borderLeft(borderStyles) };
+      case BorderSide.LEFT:
+        styles = { ...styles, ...borderLeft(borderStyles) }
 				break;
-			case BorderSide.RIGHT:
-				styles = { ...styles, ...borderRight(borderStyles) };
+      case BorderSide.RIGHT:
+        styles = { ...styles, ...borderRight(borderStyles) }
 				break;
-			case BorderSide.TOP:
-			default:
-				styles = { ...styles, ...borderTop(borderStyles) };
+      case BorderSide.TOP:
+      default:
+        styles = { ...styles, ...borderTop(borderStyles) }
 		}
-	}
+  }
 
-	return styles;
+  return styles
 }
 
 export function borderRadius(...args: [StyleValue | undefined]) {
@@ -146,12 +146,12 @@ export function borderRadius(...args: [StyleValue | undefined]) {
 			borderBottomRightRadius: args[2],
 			borderBottomLeftRadius: args[1]
 		};
-	} else {
+	}
 		return {
 			borderTopLeftRadius: args[0],
 			borderTopRightRadius: args[1],
 			borderBottomRightRadius: args[2],
 			borderBottomLeftRadius: args[3]
 		};
-	}
+
 }

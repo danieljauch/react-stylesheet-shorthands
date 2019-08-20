@@ -1,9 +1,9 @@
-import { flex, flexFlow } from '../flex';
+import { flex, flexFlow } from "../flex"
 
-describe('flex', () => {
-	it('', () => {});
-});
+describe("flex", () => {
+  it("", () => {})
+})
 
-describe('flexFlow', () => {
-	it('', () => {});
-});
+describe("flexFlow", () => {
+  it("", () => {})
+})

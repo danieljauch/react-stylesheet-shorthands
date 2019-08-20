@@ -1,5 +1,5 @@
-import transition from '../transition';
+import transition from "../transition"
 
-describe('transition', () => {
-	it('', () => {});
-});
+describe("transition", () => {
+  it("", () => {})
+})

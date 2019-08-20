@@ -1,5 +1,5 @@
-import outline from '../outline';
+import outline from "../outline"
 
-describe('outline', () => {
-	it('', () => {});
-});
+describe("outline", () => {
+  it("", () => {})
+})

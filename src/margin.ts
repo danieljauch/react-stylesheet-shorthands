@@ -1,4 +1,4 @@
-import { StyleValue } from './interfaces';
+import { StyleValue } from "./interfaces";
 
 export default function margin(...args: [StyleValue | undefined]) {
 	if (args.length === 1) {
@@ -14,12 +14,12 @@ export default function margin(...args: [StyleValue | undefined]) {
 			marginHorizontal: args[1],
 			marginBottom: args[2]
 		};
-	} else {
+	}
 		return {
 			marginTop: args[0],
 			marginRight: args[1],
 			marginBottom: args[2],
 			marginLeft: args[3]
 		};
-	}
+
 }

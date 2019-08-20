@@ -1,5 +1,5 @@
-import font from '../font';
+import font from "../font"
 
-describe('font', () => {
-	it('', () => {});
-});
+describe("font", () => {
+  it("", () => {})
+})

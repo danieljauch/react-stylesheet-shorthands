@@ -1,4 +1,4 @@
-import { StyleValue } from './interfaces';
+import { StyleValue } from "./interfaces";
 
 export default function padding(...args: [StyleValue | undefined]) {
 	if (args.length === 1) {
@@ -14,12 +14,11 @@ export default function padding(...args: [StyleValue | undefined]) {
 			paddingHorizontal: args[1],
 			paddingBottom: args[2]
 		};
-	} else {
-		return {
-			paddingTop: args[0],
-			paddingRight: args[1],
-			paddingBottom: args[2],
-			paddingLeft: args[3]
-		};
 	}
+	return {
+		paddingTop: args[0],
+		paddingRight: args[1],
+		paddingBottom: args[2],
+		paddingLeft: args[3]
+	};
 }

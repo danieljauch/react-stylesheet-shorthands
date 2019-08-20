@@ -1,9 +1,9 @@
-import { columnRule, columns } from '../column';
+import { columnRule, columns } from "../column"
 
-describe('columnRule', () => {
-	it('', () => {});
-});
+describe("columnRule", () => {
+  it("", () => {})
+})
 
-describe('columns', () => {
-	it('', () => {});
-});
+describe("columns", () => {
+  it("", () => {})
+})
