@@ -1,10 +1,4 @@
-import { BorderStyleValue, DefaultValues, StyleValue } from './interfaces';
-
-enum OutlineWidth {
-	MEDIUM = 'medium',
-	THIN = 'thin',
-	THICK = 'thick'
-}
+import { BorderStyleValue, DefaultValues, OutlineWidth, StyleValue } from './interfaces';
 
 export default function outline(
 	width: OutlineWidth | DefaultValues | StyleValue = ColumnRuleWidth.MEDIUM,

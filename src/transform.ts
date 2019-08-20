@@ -1,13 +1,5 @@
-import { StyleValue } from './interfaces';
-
-interface TransformFunction {
-	name: string;
-	value: string | number;
-}
-
-function transformFunctionToValue(transformFunction: TransformFunction) {
-	return `${name}(${value})`;
-}
+import { StyleValue, TransformFunction } from './interfaces';
+import { transformFunctionToValue } from './helpers';
 
 export default function transform(...args: [TransformFunction | StyleValue]) {
 	return {

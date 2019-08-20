@@ -1,14 +1,16 @@
 root: true
-parser: typescript-eslint
+parser: "@typescript-eslint/parser"
 extends:
-  - standard
   - plugin:prettier/recommended
-  - plugin:typescript/recommended
   - prettier/@typescript-eslint
+  - plugin:@typescript-eslint/recommended
+  - standard
+  - "./tsconfig.json"
 plugins:
-  - typescript
-  - prettier
   - jest
+  - prettier
+  - standard
+  - typescript
 rules:
   # ------------------------------------- Standard ESLint rules ------------------------------------
   array-callback-return: "error"
@@ -22,7 +24,7 @@ rules:
   dot-notation: "error"
   max-classes-per-file: ["error", 1]
   max-depth: ["error", { max: 4 }]
-  max-len: ["warn", { code: 100, comments: 80, tabWidth: 2, ignoreUrls: true, ignoreStrings: true, ignoreTemplateLiterals: true, ignoreRegExpLiterals: true }]
+  max-len: ["warn", { code: 80, comments: 80, tabWidth: 2, ignoreUrls: true, ignoreStrings: true, ignoreTemplateLiterals: true, ignoreRegExpLiterals: true }]
   max-lines: ["warn", { max: 300, skipBlankLines: true, skipComments: true }]
   max-lines-per-function: off
   max-nested-callbacks: ["warn", 2]

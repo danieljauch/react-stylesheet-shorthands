@@ -1,17 +1,4 @@
-import { DefaultValues, StyleValue } from './interfaces';
-
-enum FlexDirection {
-	ROW = 'row',
-	ROW_REVERSE = 'row-reverse',
-	COLUMN = 'column',
-	COLUMN_REVERSE = 'column-reverse'
-}
-
-enum FlexWrap {
-	NOWRAP = 'nowrap',
-	WRAP = 'wrap',
-	WRAP_REVERSE = 'wrap-reverse'
-}
+import { DefaultValues, FlexDirection, FlexWrap, StyleValue } from './interfaces';
 
 export function flex(
 	grow: number | DefaultValues = 0,

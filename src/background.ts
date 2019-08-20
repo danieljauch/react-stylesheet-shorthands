@@ -1,29 +1,11 @@
-import { StyleValue, DefaultValues } from './interfaces';
-
-enum BackgroundSize {
-	AUTO = 'auto',
-	COVER = 'cover',
-	CONTAIN = 'contain'
-}
-
-enum BackgroundRepeat {
-	REPEAT = 'repeat',
-	REPEAT_X = 'repeat-x',
-	REPEAT_Y = 'repeat-y',
-	NO_REPEAT = 'no-repeat'
-}
-
-enum BoxModelPositioning {
-	PADDING_BOX = 'padding-box',
-	BORDER_BOX = 'border-box',
-	CONTENT_BOX = 'content-box'
-}
-
-enum BackgroundAttachment {
-	SCROLL = 'scroll',
-	FIXED = 'fixed',
-	LOCAL = 'local'
-}
+import {
+	BackgroundAttachment,
+	BackgroundRepeat,
+	BackgroundSize,
+	BoxModelPositioning,
+	StyleValue,
+	DefaultValues
+} from './interfaces';
 
 export default function background(
 	color: string = 'transparent',

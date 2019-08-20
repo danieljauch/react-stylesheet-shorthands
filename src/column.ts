@@ -1,10 +1,4 @@
-import { BorderStyleValue, DefaultValues, StyleValue } from './interfaces';
-
-enum ColumnRuleWidth {
-	MEDIUM = 'medium',
-	THIN = 'thin',
-	THICK = 'thick'
-}
+import { BorderStyleValue, ColumnRuleWidth, DefaultValues, StyleValue } from './interfaces';
 
 export function columnRule(
 	width: ColumnRuleWidth | DefaultValues | StyleValue = ColumnRuleWidth.MEDIUM,

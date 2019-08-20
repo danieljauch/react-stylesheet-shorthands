@@ -1,21 +1,7 @@
-import { BorderStyleValue, DurationValue, StyleValue } from './interfaces';
+import { BorderSide, BorderStyles, BorderStyleValue, DurationValue, StyleValue } from './interfaces';
 
-enum BorderSide {
-	TOP = 'top',
-	RIGHT = 'right',
-	BOTTOM = 'bottom',
-	LEFT = 'left',
-	VERTICAL = 'vertical',
-	HORIZONTAL = 'horizontal'
-}
-
-interface BorderStyles {
-	width: DurationValue | StyleValue;
-	style: BorderStyleValue;
-	color: string;
-}
 const borderDefaults = {
-	width: '1px',
+	width: 1,
 	style: 'solid',
 	color: '#000'
 };
