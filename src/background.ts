@@ -17,7 +17,7 @@ export default function background (
   clip: BoxModelPositioning | DefaultValues = BoxModelPositioning.BORDER_BOX,
   attachment: BackgroundAttachment | DefaultValues = BackgroundAttachment.SCROLL
 ) {
-  const styles = {}
+  let styles = {}
 
   if (color) styles.backgroundColor = color
   if (image) styles.backgroundImage = image

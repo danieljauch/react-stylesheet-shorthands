@@ -8,3 +8,11 @@ function durationToValue({ value, unit }) {
     return `${value}${unit}`;
 }
 exports.durationToValue = durationToValue;
+function stepsToValue({ steps, startingFrom }) {
+    return `steps(${steps}, ${startingFrom})`;
+}
+exports.stepsToValue = stepsToValue;
+function transformFunctionToValue({ name, value }) {
+    return `${name}(${value})`;
+}
+exports.transformFunctionToValue = transformFunctionToValue;

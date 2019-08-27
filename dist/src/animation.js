@@ -1,79 +1,43 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+const interfaces_1 = require("./interfaces");
 const helpers_1 = require("./helpers");
-var TimingFunction;
-(function (TimingFunction) {
-    TimingFunction["LINEAR"] = "linear";
-    TimingFunction["EASE"] = "ease";
-    TimingFunction["EASE_IN"] = "ease-in";
-    TimingFunction["EASE_OUT"] = "ease-out";
-    TimingFunction["EASE_IN_OUT"] = "ease-in-out";
-    TimingFunction["STEP_START"] = "step-start";
-    TimingFunction["STEP_END"] = "step-end";
-})(TimingFunction || (TimingFunction = {}));
-{
-    steps: number,
-        startingFrom;
-    "start" | "end";
-}
-function stepsToValue({ steps, startingFrom }) {
-    return `steps(${steps}, ${startingFrom})`;
-}
-var AnimationDirection;
-(function (AnimationDirection) {
-    AnimationDirection["NORMAL"] = "normal";
-    AnimationDirection["REVERSE"] = "reverse";
-    AnimationDirection["ALTERNATE"] = "alternate";
-    AnimationDirection["ALTERNATE_REVERSE"] = "alternate-reverse";
-})(AnimationDirection || (AnimationDirection = {}));
-var AnimationFillMode;
-(function (AnimationFillMode) {
-    AnimationFillMode["NONE"] = "none";
-    AnimationFillMode["FORWARDS"] = "forwards";
-    AnimationFillMode["BACKWARDS"] = "backwards";
-    AnimationFillMode["BOTH"] = "both";
-})(AnimationFillMode || (AnimationFillMode = {}));
-var AnimationPlayState;
-(function (AnimationPlayState) {
-    AnimationPlayState["PAUSED"] = "paused";
-    AnimationPlayState["RUNNING"] = "running";
-})(AnimationPlayState || (AnimationPlayState = {}));
-function animation(name = "none", duration = "0s", timingFunction = TimingFunction.EASE, delay = "0s", iterationCount = 1, direction = AnimationDirection.NORMAL, fillMode = AnimationFillMode.NONE, playState = AnimationPlayState.RUNNING) {
-    const animationProperties = {};
+function animation(name = "none", duration = "0s", timingFunction = interfaces_1.TimingFunction.EASE, delay = "0s", iterationCount = 1, direction = interfaces_1.AnimationDirection.NORMAL, fillMode = interfaces_1.AnimationFillMode.NONE, playState = interfaces_1.AnimationPlayState.RUNNING) {
+    let styles = {};
     if (name) {
-        animationProperties.animationName = name;
+        styles.animationName = name;
     }
     if (duration) {
         if (duration === "initial" || duration === "inherit") {
-            animationProperties.animationDuration = duration;
+            styles.animationDuration = duration;
         }
         else {
-            animationProperties.animationDuration = helpers_1.durationToValue(duration);
+            styles.animationDuration = helpers_1.durationToValue(duration);
         }
     }
     if (timingFunction) {
-        animationProperties.animationTimingFunction = timingFunction;
+        styles.animationTimingFunction = timingFunction;
     }
     if (delay) {
         if (delay === "initial" || delay === "inherit") {
-            animationProperties.animationDelay = delay;
+            styles.animationDelay = delay;
         }
         else {
-            animationProperties.animationDelay = helpers_1.durationToValue(delay);
+            styles.animationDelay = helpers_1.durationToValue(delay);
         }
     }
     if (iterationCount) {
-        animationProperties.animationIterationCount = iterationCount;
+        styles.animationIterationCount = iterationCount;
     }
     if (direction) {
-        animationProperties.animationDirection = direction;
+        styles.animationDirection = direction;
     }
     if (fillMode) {
-        animationProperties.animationFillMode = fillMode;
+        styles.animationFillMode = fillMode;
     }
     if (playState) {
-        animationProperties.animationPlayState = playState;
+        styles.animationPlayState = playState;
     }
-    return animationProperties;
+    return { ...styles };
 }
 exports.default = animation;

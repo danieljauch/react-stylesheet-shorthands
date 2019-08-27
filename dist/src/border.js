@@ -1,22 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const interfaces_1 = require("./interfaces");
-var BorderSide;
-(function (BorderSide) {
-    BorderSide["TOP"] = "top";
-    BorderSide["RIGHT"] = "right";
-    BorderSide["BOTTOM"] = "bottom";
-    BorderSide["LEFT"] = "left";
-})(BorderSide || (BorderSide = {}));
-{
-    width: DurationValue | StyleValue,
-        style;
-    interfaces_1.BorderStyleValue,
-        color;
-    string;
-}
 const borderDefaults = {
-    width: "1px",
+    width: 1,
     style: "solid",
     color: "#000"
 };
@@ -89,21 +75,27 @@ function someBorders(sides, ...borderStyles) {
     let styles = {};
     for (let side = 0, l = sides.length; side < l; side++) {
         switch (sides[side]) {
-            case BorderSide.BOTTOM:
+            case interfaces_1.BorderSide.VERTICAL:
+                styles = { ...styles, ...borderVertical(borderStyles) };
+                break;
+            case interfaces_1.BorderSide.HORIZONTAL:
+                styles = { ...styles, ...borderHorizontal(borderStyles) };
+                break;
+            case interfaces_1.BorderSide.BOTTOM:
                 styles = { ...styles, ...borderBottom(borderStyles) };
                 break;
-            case BorderSide.LEFT:
+            case interfaces_1.BorderSide.LEFT:
                 styles = { ...styles, ...borderLeft(borderStyles) };
                 break;
-            case BorderSide.RIGHT:
+            case interfaces_1.BorderSide.RIGHT:
                 styles = { ...styles, ...borderRight(borderStyles) };
                 break;
-            case BorderSide.TOP:
+            case interfaces_1.BorderSide.TOP:
             default:
                 styles = { ...styles, ...borderTop(borderStyles) };
         }
     }
-    return styles;
+    return { ...styles };
 }
 exports.someBorders = someBorders;
 function borderRadius(...args) {
@@ -126,13 +118,11 @@ function borderRadius(...args) {
             borderBottomLeftRadius: args[1]
         };
     }
-    else {
-        return {
-            borderTopLeftRadius: args[0],
-            borderTopRightRadius: args[1],
-            borderBottomRightRadius: args[2],
-            borderBottomLeftRadius: args[3]
-        };
-    }
+    return {
+        borderTopLeftRadius: args[0],
+        borderTopRightRadius: args[1],
+        borderBottomRightRadius: args[2],
+        borderBottomLeftRadius: args[3]
+    };
 }
 exports.borderRadius = borderRadius;

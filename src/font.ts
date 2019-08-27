@@ -7,7 +7,7 @@ export default function font (
   size: FontSize | StyleValue | DefaultValues = FontSize.MEDIUM,
   family: string | DefaultValues = ""
 ) {
-  const styles = {}
+  let styles = {}
 
   if (style) styles.fontStyle = style
   if (variant) styles.fontVariant = variant

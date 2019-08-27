@@ -9,7 +9,7 @@ const borderDefaults = {
 export function borderTop (
   width: DurationValue | StyleValue = "1px",
   style: BorderStyleValue = BorderStyleValue.SOLID,
-  color = "#000"
+  color: StyleValue = "#000"
 ) {
   return {
     borderTopWidth: width,
@@ -20,7 +20,7 @@ export function borderTop (
 export function borderRight (
   width: DurationValue | StyleValue = "1px",
   style: BorderStyleValue = BorderStyleValue.SOLID,
-  color = "#000"
+  color: StyleValue = "#000"
 ) {
   return {
     borderRightWidth: width,
@@ -31,7 +31,7 @@ export function borderRight (
 export function borderLeft (
   width: DurationValue | StyleValue = "1px",
   style: BorderStyleValue = BorderStyleValue.SOLID,
-  color = "#000"
+  color: StyleValue = "#000"
 ) {
   return {
     borderLeftWidth: width,
@@ -42,7 +42,7 @@ export function borderLeft (
 export function borderBottom (
   width: DurationValue | StyleValue = "1px",
   style: BorderStyleValue = BorderStyleValue.SOLID,
-  color = "#000"
+  color: StyleValue = "#000"
 ) {
   return {
     borderBottomWidth: width,
@@ -54,7 +54,7 @@ export function borderBottom (
 export function borderVertical (
   width: DurationValue | StyleValue = "1px",
   style: BorderStyleValue = BorderStyleValue.SOLID,
-  color = "#000"
+  color: StyleValue = "#000"
 ) {
   return {
     borderVerticalWidth: width,
@@ -65,7 +65,7 @@ export function borderVertical (
 export function borderHorizontal (
   width: DurationValue | StyleValue = "1px",
   style: BorderStyleValue = BorderStyleValue.SOLID,
-  color = "#000"
+  color: StyleValue = "#000"
 ) {
   return {
     borderHorizontalWidth: width,
@@ -77,7 +77,7 @@ export function borderHorizontal (
 export function border (
   width: DurationValue | StyleValue = "1px",
   style: BorderStyleValue = BorderStyleValue.SOLID,
-  color = "#000"
+  color: StyleValue = "#000"
 ) {
   return {
     borderWidth: width,
@@ -100,7 +100,7 @@ export function allBorders ({
   }
 }
 
-export function someBorders (sides: [BorderSide], ...borderStyles) {
+export function someBorders (sides: BorderSide[], ...borderStyles: [DurationValue | StyleValue, BorderStyleValue, StyleValue]) {
   let styles = {}
 
 	for (let side = 0, l = sides.length; side < l; side++) {
@@ -126,10 +126,10 @@ export function someBorders (sides: [BorderSide], ...borderStyles) {
 		}
   }
 
-  return styles
+  return {...styles}
 }
 
-export function borderRadius(...args: [StyleValue | undefined]) {
+export function borderRadius(...args: StyleValue[] | undefined) {
 	if (args.length === 1) {
 		return { borderRadius: args[0] };
 	} else if (args.length === 2) {
@@ -138,20 +138,19 @@ export function borderRadius(...args: [StyleValue | undefined]) {
 			borderTopRightRadius: args[1],
 			borderBottomRightRadius: args[0],
 			borderBottomLeftRadius: args[1]
-		};
+		}
 	} else if (args.length === 3) {
 		return {
 			borderTopLeftRadius: args[0],
 			borderTopRightRadius: args[1],
 			borderBottomRightRadius: args[2],
 			borderBottomLeftRadius: args[1]
-		};
+		}
 	}
-		return {
-			borderTopLeftRadius: args[0],
-			borderTopRightRadius: args[1],
-			borderBottomRightRadius: args[2],
-			borderBottomLeftRadius: args[3]
-		};
-
+  return {
+    borderTopLeftRadius: args[0],
+    borderTopRightRadius: args[1],
+    borderBottomRightRadius: args[2],
+    borderBottomLeftRadius: args[3]
+  }
 }

@@ -5,6 +5,7 @@ import {
   CubicBezier,
   DefaultValues,
   DurationValue,
+  StyleValue,
   StepsType,
   TimingFunction
 } from "./interfaces"
@@ -12,57 +13,57 @@ import { cubicBezierToValue, durationToValue, stepsToValue } from "./helpers"
 
 export default function animation (
   name = "none",
-  duration: DurationValue | DefaultValues = "0s",
+  duration: StyleValue | DurationValue | DefaultValues = "0s",
   timingFunction: TimingFunction | CubicBezier | StepsType | DefaultValues = TimingFunction.EASE,
-  delay: DurationValue | DefaultValues = "0s",
+  delay: StyleValue | DurationValue | DefaultValues = "0s",
   iterationCount: number | "infinite" | DefaultValues = 1,
   direction: AnimationDirection | DefaultValues = AnimationDirection.NORMAL,
   fillMode: AnimationFillMode | DefaultValues = AnimationFillMode.NONE,
   playState: AnimationPlayState | DefaultValues = AnimationPlayState.RUNNING
 ) {
-  const animationProperties = {}
+  let styles = {}
 
   if (name) {
-    animationProperties.animationName = name
+    styles.animationName = name
   }
 
   if (duration) {
     if (duration === "initial" || duration === "inherit") {
-      animationProperties.animationDuration = duration
+      styles.animationDuration = duration
     } else {
-      animationProperties.animationDuration = durationToValue(duration)
+      styles.animationDuration = durationToValue(duration)
     }
   }
 
   if (timingFunction) {
-    animationProperties.animationTimingFunction = timingFunction
+    styles.animationTimingFunction = timingFunction
     // cubicBezierToValue(timingFunction)
     // stepsToValue(timingFunction)
   }
 
   if (delay) {
     if (delay === "initial" || delay === "inherit") {
-      animationProperties.animationDelay = delay
+      styles.animationDelay = delay
     } else {
-      animationProperties.animationDelay = durationToValue(delay)
+      styles.animationDelay = durationToValue(delay)
     }
   }
 
   if (iterationCount) {
-    animationProperties.animationIterationCount = iterationCount
+    styles.animationIterationCount = iterationCount
   }
 
   if (direction) {
-    animationProperties.animationDirection = direction
+    styles.animationDirection = direction
   }
 
   if (fillMode) {
-    animationProperties.animationFillMode = fillMode
+    styles.animationFillMode = fillMode
   }
 
   if (playState) {
-    animationProperties.animationPlayState = playState
+    styles.animationPlayState = playState
   }
 
-  return animationProperties
+  return {...styles}
 }

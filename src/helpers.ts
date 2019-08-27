@@ -1,4 +1,4 @@
-import { CubicBezier, DurationValue, StepsType, StyleValue, TransformFunction } from "./interfaces";
+import { CubicBezier, DurationValue, StepsType, TransformFunction } from "./interfaces";
 
 export function cubicBezierToValue ({ x1, x2, y1, y2 }: CubicBezier) {
   return `cubic-bezier(${x1}, ${x2}, ${y1}, ${y2})`
@@ -12,6 +12,6 @@ export function stepsToValue ({ steps, startingFrom }: StepsType) {
   return `steps(${steps}, ${startingFrom})`
 }
 
-export function transformFunctionToValue (transformFunction: TransformFunction) {
+export function transformFunctionToValue ({ name, value }: TransformFunction) {
   return `${name}(${value})`
 }
