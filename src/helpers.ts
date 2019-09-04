@@ -1,17 +1,17 @@
-import { CubicBezier, DurationValue, StepsType, TransformFunction } from "./interfaces";
+import { TransformFunction } from "./interfaces";
 
-export function cubicBezierToValue ({ x1, x2, y1, y2 }: CubicBezier) {
+export function backgroundPosition (x: StyleValue, y: StyleValue) {
+  return `${x} ${y}`
+}
+
+export function cubicBezier (x1: number, x2: number, y1: number, y2: number) {
   return `cubic-bezier(${x1}, ${x2}, ${y1}, ${y2})`
 }
 
-export function durationToValue ({ value, unit }: DurationValue) {
-  return `${value}${unit}`
-}
-
-export function stepsToValue ({ steps, startingFrom }: StepsType) {
+export function steps (steps: number, startingFrom: "start" | "end") {
   return `steps(${steps}, ${startingFrom})`
 }
 
-export function transformFunctionToValue ({ name, value }: TransformFunction) {
+export function transformFunction (name: TransformFunction, value: string) {
   return `${name}(${value})`
 }

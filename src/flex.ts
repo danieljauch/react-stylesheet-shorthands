@@ -5,17 +5,8 @@ export function flex (
   shrink: number | DefaultValues = 0,
   basis: StyleValue | DefaultValues | "auto" = "auto"
 ) {
-  if (basis) {
-    return {
-      flex: `${grow} ${shrink} ${basis}`
-    }
-  } else if (shrink) {
-    return {
-      flex: `${grow} ${shrink}`
-    }
-  }
   return {
-    flex: grow
+    flex: `${grow} ${shrink} ${basis}`
   }
 }
 

@@ -7,13 +7,11 @@ export default function font (
   size: FontSize | StyleValue | DefaultValues = FontSize.MEDIUM,
   family: string | DefaultValues = ""
 ) {
-  let styles = {}
-
-  if (style) styles.fontStyle = style
-  if (variant) styles.fontVariant = variant
-  if (weight) styles.fontWeight = weight
-  if (size) styles.fontSize = size
-  if (family) styles.fontFamily = family
-
-  return { ...styles }
+  return {
+    fontStyle: style,
+    fontVariant: variant,
+    fontWeight: weight,
+    fontSize: size,
+    fontFamily: family
+  }
 }

@@ -45,11 +45,7 @@ export enum BorderSide {
 	HORIZONTAL = "horizontal"
 }
 
-export interface BorderStyles {
-	width: DurationValue | StyleValue;
-	style: BorderStyleValue;
-	color: string;
-}
+export type BorderStyles = [StyleValue, BorderStyleValue, StyleValue]
 
 export enum BorderStyleValue {
 	NONE = "none",
@@ -70,13 +66,6 @@ export enum BoxModelPositioning {
 	CONTENT_BOX = "content-box"
 }
 
-export interface CubicBezier {
-	x1: number;
-	x2: number;
-	y1: number;
-	y2: number;
-}
-
 export enum ColumnRuleWidth {
 	MEDIUM = "medium",
 	THIN = "thin",
@@ -86,11 +75,6 @@ export enum ColumnRuleWidth {
 export enum DefaultValues {
 	INITIAL = "initial",
 	INHERIT = "inherit"
-}
-
-export interface DurationValue {
-	value: number;
-	unit: "s" | "ms";
 }
 
 export enum FlexDirection {
@@ -151,11 +135,6 @@ export enum OutlineWidth {
 	THICK = "thick"
 }
 
-export interface StepsType {
-	steps: number;
-	startingFrom: "start" | "end";
-}
-
 export type StyleValue = string | number;
 
 export enum TimingFunction {
@@ -168,7 +147,26 @@ export enum TimingFunction {
 	STEP_END = "step-end"
 }
 
-export interface TransformFunction {
-	name: string;
-	value: string | number;
+export enum TransformFunction {
+	MATRIX = "matrix",
+	TRANSLATE = "translate",
+	TRANSLATE_X = "translateX",
+	TRANSLATE_Y = "translateY",
+	SCALE = "scale",
+	SCALE_X = "scaleX",
+	SCALE_Y = "scaleY",
+	ROTATE = "rotate",
+	SKEW = "skew",
+	SKEW_X = "skewX",
+	SKEW_Y = "skewY",
+	MATRIX_3D = "matrix3d",
+	TRANSLATE_3D = "translate3d",
+	TRANSLATE_Z = "translateZ",
+	SCALE_3D = "scale3d",
+	SCALE_Z = "scaleZ",
+	ROTATE_3D = "rotate3d",
+	ROTATE_X = "rotateX",
+	ROTATE_Y = "rotateY",
+	ROTATE_Z = "rotateZ",
+	PERSPECTIVE = "perspective"
 }

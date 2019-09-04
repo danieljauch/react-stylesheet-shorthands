@@ -23,7 +23,12 @@ export {
   gridTemplate,
   grid
 } from "./src/grid"
-export { cubicBezierToValue, durationToValue } from "./src/helpers"
+export {
+  backgroundPosition,
+  cubicBezier,
+  steps,
+  transformFunction
+} from "./src/helpers"
 export { default as margin } from "./src/margin"
 export { default as outline } from "./src/outline"
 export { default as padding } from "./src/padding"
