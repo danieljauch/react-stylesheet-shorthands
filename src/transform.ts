@@ -1,15 +1,7 @@
-import { StyleValue, TransformFunction } from "./interfaces";
-import { transformFunctionToValue } from "./helpers";
+import { StyleValue, TransformFunction } from "./interfaces"
 
 export default function transform (...args: TransformFunction[] | StyleValue[]) {
   return {
-    transform: args.map(normalizeTransformArg).join(" ")
+    transform: args.join(" ")
   }
-}
-
-const normalizeTransformArg = (arg: TransformFunction | StyleValue) => {
-  if (typeof arg === "object") {
-    return transformFunctionToValue(arg)
-  }
-  return arg
 }

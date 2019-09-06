@@ -1,4 +1,9 @@
-import { BorderStyleValue, ColumnRuleWidth, DefaultValues, StyleValue } from "./interfaces"
+import {
+  BorderStyleValue,
+  ColumnRuleWidth,
+  DefaultValues,
+  StyleValue
+} from "./interfaces"
 
 export function columnRule (
   width: ColumnRuleWidth | DefaultValues | StyleValue = ColumnRuleWidth.MEDIUM,

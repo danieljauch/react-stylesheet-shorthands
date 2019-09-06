@@ -1,4 +1,9 @@
-import { BorderStyleValue, DefaultValues, OutlineWidth, StyleValue } from "./interfaces";
+import {
+  BorderStyleValue,
+  DefaultValues,
+  OutlineWidth,
+  StyleValue
+} from "./interfaces"
 
 export default function outline (
   width: OutlineWidth | DefaultValues | StyleValue = OutlineWidth.MEDIUM,

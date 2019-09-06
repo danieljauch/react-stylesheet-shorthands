@@ -8,8 +8,8 @@ import {
 } from "./interfaces"
 
 export default function background (
-  color: string = "transparent",
-  image: string = "none",
+  color = "transparent",
+  image = "none",
   position: StyleValue = "0 0",
   size: BackgroundSize | StyleValue | DefaultValues = "auto",
   repeat: BackgroundRepeat | StyleValue = BackgroundRepeat.REPEAT,

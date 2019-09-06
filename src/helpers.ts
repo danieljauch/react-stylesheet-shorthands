@@ -1,4 +1,4 @@
-import { TransformFunction } from "./interfaces";
+import { StyleValue, TransformFunction } from "./interfaces"
 
 export function backgroundPosition (x: StyleValue, y: StyleValue) {
   return `${x} ${y}`

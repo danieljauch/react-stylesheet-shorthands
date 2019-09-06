@@ -1,9 +1,15 @@
-import { BorderSide, BorderStyles, BorderStyleValue, StyleValue } from "./interfaces";
+import {
+  BorderSide,
+  BorderStyles,
+  BorderStyleValue,
+  StyleValue
+} from "./interfaces"
 
-const borderDefaults = {
-  width: 1,
-  style: "solid",
-  color: "#000"
+interface AllBordersArgs {
+  top: BorderStyles | undefined;
+  right: BorderStyles | undefined;
+  bottom: BorderStyles | undefined;
+  left: BorderStyles | undefined;
 }
 
 export function borderTop (
@@ -86,70 +92,90 @@ export function border (
   }
 }
 
-export function allBorders ({
-  top: BorderStyles = borderDefaults,
-  right: BorderStyles = borderDefaults,
-  bottom: BorderStyles = borderDefaults,
-  left: BorderStyles = borderDefaults
-}) {
-  return {
-    ...borderTop(top.width, top.style, top.color),
-    ...borderRight(right.width, right.style, right.color),
-    ...borderBottom(bottom.width, bottom.style, bottom.color),
-    ...borderLeft(left.width, left.style, left.color)
+export function allBorders ({ top, right, bottom, left }: AllBordersArgs) {
+  let styles = {}
+
+  if (top) styles = { ...styles, ...borderTop(top[0], top[1], top[2]) }
+  if (right) {
+    styles = { ...styles, ...borderRight(right[0], right[1], right[2]) }
   }
+  if (bottom) {
+    styles = { ...styles, ...borderBottom(bottom[0], bottom[1], bottom[2]) }
+  }
+  if (left) styles = { ...styles, ...borderLeft(left[0], left[1], left[2]) }
+
+  return styles
 }
 
 export function someBorders (
   sides: BorderSide[],
-  ...borderStyles: BorderStyles = borderDefaults
+  ...borderStyles: BorderStyles
 ) {
   let styles = {}
 
-	for (let side = 0, l = sides.length; side < l; side++) {
+  for (let side = 0, l = sides.length; side < l; side++) {
     switch (sides[side]) {
       case BorderSide.VERTICAL:
-        styles = { ...styles, ...borderVertical(borderStyles) }
-				break;
+        styles = {
+          ...styles,
+          ...borderVertical(borderStyles[0], borderStyles[1], borderStyles[2])
+        }
+        break
       case BorderSide.HORIZONTAL:
-        styles = { ...styles, ...borderHorizontal(borderStyles) }
-				break;
+        styles = {
+          ...styles,
+          ...borderHorizontal(borderStyles[0], borderStyles[1], borderStyles[2])
+        }
+        break
       case BorderSide.BOTTOM:
-        styles = { ...styles, ...borderBottom(borderStyles) }
-				break;
+        styles = {
+          ...styles,
+          ...borderBottom(borderStyles[0], borderStyles[1], borderStyles[2])
+        }
+        break
       case BorderSide.LEFT:
-        styles = { ...styles, ...borderLeft(borderStyles) }
-				break;
+        styles = {
+          ...styles,
+          ...borderLeft(borderStyles[0], borderStyles[1], borderStyles[2])
+        }
+        break
       case BorderSide.RIGHT:
-        styles = { ...styles, ...borderRight(borderStyles) }
-				break;
+        styles = {
+          ...styles,
+          ...borderRight(borderStyles[0], borderStyles[1], borderStyles[2])
+        }
+        break
       case BorderSide.TOP:
       default:
-        styles = { ...styles, ...borderTop(borderStyles) }
-		}
+        styles = {
+          ...styles,
+          ...borderTop(borderStyles[0], borderStyles[1], borderStyles[2])
+        }
+    }
   }
 
-  return {...styles}
+  return { ...styles }
 }
 
-export function borderRadius(...args: StyleValue[] | undefined) {
-	if (args.length === 1) {
-		return { borderRadius: args[0] };
-	} else if (args.length === 2) {
-		return {
-			borderTopLeftRadius: args[0],
-			borderTopRightRadius: args[1],
-			borderBottomRightRadius: args[0],
-			borderBottomLeftRadius: args[1]
-		}
-	} else if (args.length === 3) {
-		return {
-			borderTopLeftRadius: args[0],
-			borderTopRightRadius: args[1],
-			borderBottomRightRadius: args[2],
-			borderBottomLeftRadius: args[1]
-		}
-	}
+export function borderRadius (...args: StyleValue[]) {
+  if (!args) return {}
+  if (args.length === 1) {
+    return { borderRadius: args[0] }
+  } else if (args.length === 2) {
+    return {
+      borderTopLeftRadius: args[0],
+      borderTopRightRadius: args[1],
+      borderBottomRightRadius: args[0],
+      borderBottomLeftRadius: args[1]
+    }
+  } else if (args.length === 3) {
+    return {
+      borderTopLeftRadius: args[0],
+      borderTopRightRadius: args[1],
+      borderBottomRightRadius: args[2],
+      borderBottomLeftRadius: args[1]
+    }
+  }
   return {
     borderTopLeftRadius: args[0],
     borderTopRightRadius: args[1],

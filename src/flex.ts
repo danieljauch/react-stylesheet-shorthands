@@ -1,4 +1,9 @@
-import { DefaultValues, FlexDirection, FlexWrap, StyleValue } from "./interfaces"
+import {
+  DefaultValues,
+  FlexDirection,
+  FlexWrap,
+  StyleValue
+} from "./interfaces"
 
 export function flex (
   grow: number | DefaultValues = 0,

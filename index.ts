@@ -20,8 +20,7 @@ export {
   gridRow,
   gridGap,
   gridArea,
-  gridTemplate,
-  grid
+  gridTemplate
 } from "./src/grid"
 export {
   backgroundPosition,

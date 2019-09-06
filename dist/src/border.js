@@ -1,11 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const interfaces_1 = require("./interfaces");
-const borderDefaults = {
-    width: 1,
-    style: "solid",
-    color: "#000"
-};
 function borderTop(width = "1px", style = interfaces_1.BorderStyleValue.SOLID, color = "#000") {
     return {
         borderTopWidth: width,
@@ -62,13 +57,18 @@ function border(width = "1px", style = interfaces_1.BorderStyleValue.SOLID, colo
     };
 }
 exports.border = border;
-function allBorders({ top: BorderStyles = borderDefaults, right: BorderStyles = borderDefaults, bottom: BorderStyles = borderDefaults, left: BorderStyles = borderDefaults }) {
-    return {
-        ...borderTop(top.width, top.style, top.color),
-        ...borderRight(right.width, right.style, right.color),
-        ...borderBottom(bottom.width, bottom.style, bottom.color),
-        ...borderLeft(left.width, left.style, left.color)
-    };
+function allBorders({ top, right, bottom, left }) {
+    let styles = {};
+    if (top)
+        styles = { ...styles, ...borderTop(top[0], top[1], top[2]) };
+    if (right)
+        styles = { ...styles, ...borderRight(right[0], right[1], right[2]) };
+    if (bottom) {
+        styles = { ...styles, ...borderBottom(bottom[0], bottom[1], bottom[2]) };
+    }
+    if (left)
+        styles = { ...styles, ...borderLeft(left[0], left[1], left[2]) };
+    return styles;
 }
 exports.allBorders = allBorders;
 function someBorders(sides, ...borderStyles) {
@@ -76,29 +76,48 @@ function someBorders(sides, ...borderStyles) {
     for (let side = 0, l = sides.length; side < l; side++) {
         switch (sides[side]) {
             case interfaces_1.BorderSide.VERTICAL:
-                styles = { ...styles, ...borderVertical(borderStyles) };
+                styles = {
+                    ...styles,
+                    ...borderVertical(borderStyles[0], borderStyles[1], borderStyles[2])
+                };
                 break;
             case interfaces_1.BorderSide.HORIZONTAL:
-                styles = { ...styles, ...borderHorizontal(borderStyles) };
+                styles = {
+                    ...styles,
+                    ...borderHorizontal(borderStyles[0], borderStyles[1], borderStyles[2])
+                };
                 break;
             case interfaces_1.BorderSide.BOTTOM:
-                styles = { ...styles, ...borderBottom(borderStyles) };
+                styles = {
+                    ...styles,
+                    ...borderBottom(borderStyles[0], borderStyles[1], borderStyles[2])
+                };
                 break;
             case interfaces_1.BorderSide.LEFT:
-                styles = { ...styles, ...borderLeft(borderStyles) };
+                styles = {
+                    ...styles,
+                    ...borderLeft(borderStyles[0], borderStyles[1], borderStyles[2])
+                };
                 break;
             case interfaces_1.BorderSide.RIGHT:
-                styles = { ...styles, ...borderRight(borderStyles) };
+                styles = {
+                    ...styles,
+                    ...borderRight(borderStyles[0], borderStyles[1], borderStyles[2])
+                };
                 break;
             case interfaces_1.BorderSide.TOP:
             default:
-                styles = { ...styles, ...borderTop(borderStyles) };
+                styles = { ...styles,
+                    ...borderTop(borderStyles[0], borderStyles[1], borderStyles[2])
+                };
         }
     }
     return { ...styles };
 }
 exports.someBorders = someBorders;
 function borderRadius(...args) {
+    if (!args)
+        return {};
     if (args.length === 1) {
         return { borderRadius: args[0] };
     }

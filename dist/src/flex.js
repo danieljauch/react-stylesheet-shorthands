@@ -2,18 +2,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const interfaces_1 = require("./interfaces");
 function flex(grow = 0, shrink = 0, basis = "auto") {
-    if (basis) {
-        return {
-            flex: `${grow} ${shrink} ${basis}`
-        };
-    }
-    else if (shrink) {
-        return {
-            flex: `${grow} ${shrink}`
-        };
-    }
     return {
-        flex: grow
+        flex: `${grow} ${shrink} ${basis}`
     };
 }
 exports.flex = flex;

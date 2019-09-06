@@ -1,4 +1,11 @@
-import { DefaultValues, FontSize, FontStyle, FontVariant, FontWeight, StyleValue } from "./interfaces"
+import {
+  DefaultValues,
+  FontSize,
+  FontStyle,
+  FontVariant,
+  FontWeight,
+  StyleValue
+} from "./interfaces"
 
 export default function font (
   style: FontStyle | DefaultValues = FontStyle.NORMAL,
