@@ -257,7 +257,7 @@ margin2ArgsExample: {
   ...margin(1, 2)
 },
 margin3ArgsExample: {
-  ...margin(1, 2, 3,)
+  ...margin(1, 2, 3)
 },
 margin4ArgsExample: {
   ...margin(1, 2, 3, 4)
@@ -310,7 +310,7 @@ padding2ArgsExample: {
   ...padding(1, 2)
 },
 padding3ArgsExample: {
-  ...padding(1, 2, 3,)
+  ...padding(1, 2, 3)
 },
 padding4ArgsExample: {
   ...padding(1, 2, 3, 4)
@@ -584,7 +584,7 @@ backgroundPosition("top", "left"); // "top left"
 ## `cubicBezier`
 
 ```typescript
-cubicBezier({}.5, .15, .5, .85}) // "cubic-bezier(0.5, 0.15, 0.5, 0.85)"
+cubicBezier({.5, .15, .5, .85}) // "cubic-bezier(0.5, 0.15, 0.5, 0.85)"
 ```
 
 ## `span`

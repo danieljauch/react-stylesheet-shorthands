@@ -1,6 +1,6 @@
 {
   "name": "react-stylesheet-shorthands",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "A JS module to add shorthand notation to React StyleSheets that exist in CSS",
   "main": "dist/index.js",
   "author": "Daniel Jauch <daniel.p.jauch@gmail.com>",
