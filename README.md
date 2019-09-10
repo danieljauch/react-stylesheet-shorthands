@@ -584,7 +584,7 @@ backgroundPosition("top", "left"); // "top left"
 ## `cubicBezier`
 
 ```typescript
-cubicBezier({.5, .15, .5, .85}) // "cubic-bezier(0.5, 0.15, 0.5, 0.85)"
+cubicBezier(.5, .15, .5, .85) // "cubic-bezier(0.5, 0.15, 0.5, 0.85)"
 ```
 
 ## `span`
