@@ -197,19 +197,11 @@ fontExample: {
 }
 ```
 
-## `grid`
-
-```typescript
-gridExample: {
-
-}
-```
-
 ## `gridArea`
 
 ```typescript
 gridAreaExample: {
-
+  ...gridArea(2, 1, "span 2", "span 3")
 }
 ```
 
@@ -217,7 +209,7 @@ gridAreaExample: {
 
 ```typescript
 gridColumnExample: {
-
+  ...gridColumn(1, "span 2")
 }
 ```
 
@@ -225,7 +217,7 @@ gridColumnExample: {
 
 ```typescript
 gridGapExample: {
-
+  ...gridGap("10%", 20)
 }
 ```
 
@@ -233,15 +225,25 @@ gridGapExample: {
 
 ```typescript
 gridRowExample: {
-
+  ...gridRow(1, "span 2")
 }
 ```
 
 ## `gridTemplate`
 
+This was one method that was pretty difficult to emulate the exact behavior of
+CSS's defaults because there are so many different ways to take in arguments
+(which is why I didn't attempt `grid`). There are three arguments to the
+shorthand which include rows, columns, areas. Each argument takes in an array of
+strings or valid row / column numbers.
+
 ```typescript
 gridTemplateExample: {
-
+  ...gridTemplate(
+    [10, 10, 10],
+    ["25%", "50%", "25%"],
+    ["header header header", "column1 column2 column3", "column1 footer footer"]
+  )
 }
 ```
 
@@ -365,9 +367,18 @@ someBordersExample3: {
 
 ## `transform`
 
+Since the transform shorthand is just a list of different transforms, it's
+intended to be used with the [`transformFunction`](#transformfunction) helper
+and the [`TransformFunction` enum](#enums), so this example will use the example
+of string and helper usage.
+
 ```typescript
 transformExample: {
-
+  ...transform(
+    "rotateX(20deg)",
+    ...transformFunction(TransformFunction.ROTATE_Y, "10deg"),
+    "scale(1.5)"
+  )
 }
 ```
 
@@ -375,7 +386,12 @@ transformExample: {
 
 ```typescript
 transitionExample: {
-
+  ...transition(
+    "background-color", // property
+    "0.2s", // duration
+    "ease-out", // timing function
+    "0.5s" // delay
+  )
 }
 ```
 
@@ -568,7 +584,13 @@ backgroundPosition("top", "left"); // "top left"
 ## `cubicBezier`
 
 ```typescript
-cubicBezier(.5, .15, .5, .85}) // "cubic-bezier(0.5, 0.15, 0.5, 0.85)"
+cubicBezier({}.5, .15, .5, .85}) // "cubic-bezier(0.5, 0.15, 0.5, 0.85)"
+```
+
+## `span`
+
+```typescript
+span(2) // "span 2"
 ```
 
 ## `steps`

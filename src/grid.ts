@@ -27,7 +27,7 @@ export function gridArea (
 export function gridTemplate (
   rows: StyleValue[] = ["none"],
   columns: StyleValue[] = ["none"],
-  areas: StyleValue[] = ["none"]
+  areas: string[] = ["none"]
 ) {
   return {
     gridTemplateRows: rows.join(" "),

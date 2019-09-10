@@ -25,6 +25,7 @@ export {
 export {
   backgroundPosition,
   cubicBezier,
+  span,
   steps,
   transformFunction
 } from "./src/helpers"
